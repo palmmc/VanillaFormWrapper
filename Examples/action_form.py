@@ -1,8 +1,11 @@
 from endstone._internal.endstone_python import Player
-from .form_wrapper import ActionFormData, ActionFormResponse
+from ..form_wrapper import (
+    ActionFormData,
+    ActionFormResponse,
+)
 
 
-def example_form(player: Player):
+def example_action_form(player: Player):
     form = ActionFormData()
     form.title("Test Form")
     form.body("This is a test form.")
