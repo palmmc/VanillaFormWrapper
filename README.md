@@ -6,48 +6,33 @@
 </div>
 
 # OttoUpdater
-A plugin for [Endstone](https://github.com/EndstoneMC/endstone) to keep your plugins up-to-date automatically.
+A wrapper for [Endstone](https://github.com/EndstoneMC/endstone) in python to mimic Vanilla ScriptAPI form UIs.
 
-# Installation
+# Usage
 1) Download the latest [release](../../releases).
-2) Drag and drop the file ending with `.whl` into your Endstone plugin folder.
-3) Restart or reload your server. Enjoy!
+2) Drop it into your plugin at the same level as your entry point script.
+3) Add the following import to the top of your script:
+   
+   ```python
+   from .form_wrapper import (
+     ActionFormData,
+     ActionFormResponse,
+     ModalFormData,
+     ModalFormResponse,
+     MessageFormData,
+     MessageFormResponse
+   )
+   ```
+4) And you're done!
 
-### Demo
-<img src="./images/demo.png">
+> Keep in mind that (due to the *language barrier*) this wrapper doesn't replicate vanilla forms 1:1.
+>
+> However, it will still make the form process feel a lot more familiar, and hopefully, easier to understand.
 
-# Features
-- Scans for plugins with github links.
-  - If one is found, and the latest version does not match, the plugin is updated.
-***
-# For Developers❗
-For your plugin to be found by **OttoUpdater**, make sure you complete the following:
-- In your `pyproject.toml` file, add/implement the following with your plugin's repo:
+# Examples
+https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/action_form.py
+https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/modal_form.py
+https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/message_form.py
 
-  ```
-  [project.urls]
-  Homepage = "https://github.com/example/repo"
-  ```
-- Make sure you have at least one release available, and that one is marked as `latest`.
-- Make sure the release's tag has a version matchable to the plugin's version (as defined in your `pyproject.toml`).
-  - **Acceptable Examples:** `1.0.0`, `beta-0.2`, `v1.3.2-ReleaseC1`
-  - **Will NOT Work:** `newbeta`
-
-***
-## That's it!
-I hope you enjoy using **OttoUpdater!**
 
 If you experience any issues or have a suggestion, please create an [Issue](../../issues), and I'll try to get to it when I can!
-
-# Feature Roadmap
-**Feature**|**Status**
-:-----:|:-----:
-Update Discovery|✅
-Automatic Downloading|✅
-Configuration|🔷
-Automatic Restart/Reload|🔶
-Secondary Link Compatability|🔶
-
-✅ - Complete
-🔷 - Work in Progress
-🔶 - Planned
