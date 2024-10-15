@@ -29,13 +29,35 @@ A wrapper for [Endstone](https://github.com/EndstoneMC/endstone) in python to mi
 >
 > However, it will still make the form process feel a lot more familiar, and hopefully, easier to understand.
 
-# Examples
+# Example
 
-https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/action_form.py#L1C1-L26C6
+```python
+def example_modal_form(player: Player):
+    form = ModalFormData()
+    options = ["Option 1", "Option 2", "Option 3"]
+    form.title("Test Form")
+    form.dropdown("Test Dropdown", options)
+    form.slider("Test Slider", 0, 100, 1)
+    form.text_field("Test Text Field", "Enter text here")
+    form.toggle("Test Toggle", False)
+    form.submit_button("Booger")
 
-https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/modal_form.py
+    def submit(player: Player, response: ModalFormResponse):
+        if response.canceled:
+            player.send_message("§cForm canceled.")
+            return
+        else:
+            player.send_message("§aDropdown: §f" + options[response.formValues[0]])
+            player.send_message("§aSlider: §f" + str(response.formValues[1]))
+            player.send_message("§aText Field: §f" + response.formValues[2])
+            player.send_message("§aToggle: §f" + str(response.formValues[3]))
+            return
 
-https://github.com/palmmc/VanillaFormWrapper/blob/983789c715c7f4846b5ea77b963a14a33cd965c6/Examples/message_form.py
+    form.show(player).then(
+        lambda player=Player, response=ModalFormResponse: submit(player, response)
+    )
+
+```
 
 
 If you experience any issues or have a suggestion, please create an [Issue](../../issues), and I'll try to get to it when I can!
