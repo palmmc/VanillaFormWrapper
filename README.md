@@ -1,11 +1,11 @@
-<img src="./images/badge.png?raw=true" width="128">
+<a href="../../"><img src="./images/badge.png?raw=true" width="128">
 <div align="left">
   
-[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](../../wiki/ "Go to project documentation")
+[![view - Examples](https://img.shields.io/badge/view-Examples-purple?style=for-the-badge)](../../tree/main/Examples/ "Go to project documentation")
 
 </div>
 
-# OttoUpdater
+# VanillaFormWrapper
 A wrapper for [Endstone](https://github.com/EndstoneMC/endstone) in python to mimic Vanilla ScriptAPI form UIs.
 
 # Usage
@@ -59,5 +59,6 @@ def example_modal_form(player: Player):
 
 ```
 
+# Issues
 
 If you experience any issues or have a suggestion, please create an [Issue](../../issues), and I'll try to get to it when I can!
